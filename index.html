@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panen Buah Durian - Game Petualangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game-container">
+
+    <header class="game-header">
+        <h1>🌳 PANEN BUAH DURIAN 🌳</h1>
+        <p>Petualangan Mengumpulkan Durian Menuju Pasar</p>
+    </header>
+
+    <section class="status-bar">
+        <div class="status">
+            <span>🏆 Durian</span>
+            <strong id="score">0</strong>
+        </div>
+
+        <div class="status">
+            <span>❤️ Nyawa</span>
+            <strong id="health">0</strong>
+        </div>
+
+        <div class="status">
+            <span>⏱ Waktu</span>
+            <strong id="timer">05:00</strong>
+        </div>
+
+        <div class="status">
+            <span>🛒 Gerobak</span>
+            <strong id="cart-count">0</strong>
+        </div>
+
+        <div class="status">
+            <span>🪰 Serangan Lalat</span>
+            <strong id="fly-count">0/5</strong>
+        </div>
+    </section>
+
+    <div class="progress-container">
+        <span>Perjalanan menuju pasar</span>
+        <div class="progress-bar">
+            <div id="distance-progress"></div>
+        </div>
+        <span id="distance">0 / 3000 cm</span>
+    </div>
+
+    <main id="game-world">
+
+        <div class="sky">
+            <div class="sun">☀️</div>
+            <div class="cloud cloud1">☁️</div>
+            <div class="cloud cloud2">☁️</div>
+            <div class="cloud cloud3">☁️</div>
+        </div>
+
+        <div class="mountains">🏔️</div>
+
+        <div id="trees-container"></div>
+
+        <div id="enemy-container"></div>
+
+        <div id="fruit-container"></div>
+
+        <div id="fly-container"></div>
+
+        <div id="market" class="hidden">
+            <div class="market-building">
+                <div class="market-sign">🏪 PASAR DURIAN</div>
+                <div class="market-content">
+                    <span>🧑‍🌾</span>
+                    <span>🧑</span>
+                    <span>👩</span>
+                    <span>🧑‍🦱</span>
+                </div>
+                <div class="market-text">Tempat Penjualan Durian</div>
+            </div>
+        </div>
+
+        <div id="player">
+            <div class="player-shadow"></div>
+
+            <div class="farmer">
+                <div class="farmer-hat">
+                    <div class="hat-top"></div>
+                    <div class="hat-brim"></div>
+                </div>
+
+                <div class="farmer-head">
+                    <div class="farmer-eyes">• •</div>
+                    <div class="farmer-nose"></div>
+                    <div class="farmer-mouth"></div>
+                </div>
+
+                <div class="farmer-body">
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="shirt-detail"></div>
+                </div>
+
+                <div class="farmer-legs">
+                    <div class="leg leg-left"></div>
+                    <div class="leg leg-right"></div>
+                </div>
+            </div>
+
+            <div id="cart">
+                <div class="cart-handle"></div>
+                <div class="cart-body">
+                    <div class="cart-durian" id="cart-durian"></div>
+                </div>
+                <div class="cart-wheel wheel-left"></div>
+                <div class="cart-wheel wheel-right"></div>
+            </div>
+        </div>
+
+        <div class="road">
+            <div class="road-line"></div>
+        </div>
+
+        <div id="notification"></div>
+
+        <div id="start-screen" class="overlay">
+            <div class="modal">
+                <h2>🌳 PANEN BUAH DURIAN</h2>
+
+                <div class="preview-character">👨‍🌾 🛒</div>
+
+                <p>
+                    Bawa gerobak panen menuju pasar dan kumpulkan
+                    30 buah durian!
+                </p>
+
+                <ul>
+                    <li>🥭 Tangkap durian menggunakan gerobak.</li>
+                    <li>💥 Jangan sampai durian mengenai badan.</li>
+                    <li>🔨 Hindari musuh yang menendang gerobak.</li>
+                    <li>🪰 Lindungi durian dari serangan lalat.</li>
+                    <li>🏪 Jual durian di pasar selama 20 detik.</li>
+                </ul>
+
+                <button id="start-button">MULAI PERMAINAN</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="overlay hidden">
+            <div class="modal">
+                <h2 id="result-title">PERMAINAN SELESAI</h2>
+                <div id="result-icon">🏆</div>
+                <p id="result-message"></p>
+                <p id="final-score"></p>
+                <button onclick="location.reload()">MAIN LAGI</button>
+            </div>
+        </div>
+
+    </main>
+
+    <section id="market-panel" class="hidden">
+        <h2>🏪 PASAR DURIAN</h2>
+        <p id="market-message">
+            Hindari lalat agar durian tidak busuk!
+        </p>
+        <div class="market-progress">
+            <div id="market-progress-bar"></div>
+        </div>
+        <p id="market-timer">20 detik</p>
+    </section>
+
+    <section class="controls">
+        <div class="movement-controls">
+            <button id="left-button">⬅️</button>
+            <button id="right-button">➡️</button>
+        </div>
+
+        <button id="pause-button">⏸ JEDA</button>
+    </section>
+
+    <footer>
+        <p>Gunakan tombol panah keyboard atau tombol navigasi untuk bergerak.</p>
+    </footer>
+
+</div>
+
+<script src="javascript.js"></script>
+</body>
+</html>
